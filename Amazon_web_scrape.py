@@ -22,6 +22,7 @@
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
+import csv
 
 #----------------------------------------------------------------
 def get_url(search_term):
@@ -119,7 +120,7 @@ for i in range(pages):
     print(url)
     soup = BeautifulSoup(driver.page_source,'html.parser')
     final(soup,i)
-    if pages>15:
+    if i>15:
         print('Current Page limit reached 15')
         driver.quit()
         print('Browser Closed')
